@@ -1,31 +1,60 @@
-# Module 12 Report Template
+# Credit Risk Analysis Report
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+For the analysis of the machine learning models, we:
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+1) Conducted this analysis in order compare two data sets, an original and overampled set, to determine model accuracy, percision, and recall.
+2) The data analyzed included loan size, interest rate, borrower income, debt to income, number of accounts, derogatory marks, total debt, and loan status of potential borrowers. Using historical lending activity, we are creating a model to determine the creditworthiness for borrowers based on the above-mentioned data.
+3) To complete our analysis, we must predict variables including y_counts (target value balance), logistic_regression_model (obtained from first instantiating and fitting), balance_accuracy_score, confusion_matrix, and classification_report_imbalanced..
+4) The machine learning process went through the following basic steps: obtaining the data then splitting it into training and testing sets; creating first a logistic regression model using the original data and determining the balanced accuracy score, confusion matrix, and imbalanced classification report; use the oversampler module to resample the data; create a new logisitc regression model with the resampled data; lastly, determine the new scores from the new model and compare it to the orignial data model.
+
 
 ## Results
 
 Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
 
-* Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
+* Machine Learning Model 1 (Original Data):
+  * Accuracy:
+  0.9520479254722232
+  
+  * Precision:
+  [[18663,   102],
+       [   56,   563]]
+       
+  * Recall:
+  
+           pre       rec       spe        f1       geo       iba       sup
 
+          0       1.00      0.99      0.91      1.00      0.95      0.91     18765
+          1       0.85      0.91      0.99      0.88      0.95      0.90       619
 
+avg / total       0.99      0.99      0.91      0.99      0.95      0.91     19384
 
-* Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+* Machine Learning Model 2 (Rebalanced Data):
+  * Accuracy:
+  0.9936781215845847
+  
+  * Precision:
+  [[18649   116]
+ [    4   615]]
+  
+  * Recall:
+  
+        pre       rec       spe        f1       geo       iba       sup
+
+          0       1.00      0.99      0.99      1.00      0.99      0.99     18765
+          1       0.84      0.99      0.99      0.91      0.99      0.99       619
+
+avg / total       0.99      0.99      0.99      0.99      0.99      0.99     19384
+
+* As shown above, the data from the original model is less accurate, less precise, and has lower recall values than the resampled model. 
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+From the machine learning models, the following conclusions can be drawn:
 
-If you do not recommend any of the models, please justify your reasoning.
+1) The resampled model preforms better in this case. As mentioned above, the resampled data has a 99% accuracy as opposed to 95%, the resampled data has more accurate and fuller clusters, and has higher recall values, making it the better model to utilize. 
+2) Does performance depend on the problem we are trying to solve? As indicated by the results of the resampled model, for a better performance, the number of '1s' being predicted increased substantially as opposed to the original data model. 
+
+
